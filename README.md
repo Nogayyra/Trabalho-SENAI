@@ -25,8 +25,6 @@ ideavault/
 │   └── Ideia.php           # Dados da ideia
 ├── View/                   # Telas (entrar, cadastro, painel, ideias...)
 ├── templates/               # header, footer, navbar e assets (css/js)
-├── database/
-│   └── schema.sql           # Script de criação do banco
 ├── index.php                 # Front controller (único ponto de entrada)
 ├── composer.json
 └── README.md
@@ -51,10 +49,7 @@ ideavault/
 
 ## Como configurar
 
-1. Suba um MySQL local e crie o banco executando o script:
-   ```bash
-   mysql -u root -p < database/schema.sql
-   ```
+1. Suba um MySQL local e crie o banco executando o script da seção "Banco De Dados" abaixo.
    A conexão usa os valores de `Config/configuration.php` (MySQL local, usuário `root` sem senha).
 2. Suba um servidor PHP embutido a partir da raiz do projeto:
    ```bash
