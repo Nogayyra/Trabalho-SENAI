@@ -1,0 +1,9 @@
+{
+    "name": "academico/ideavault",
+    "description": "IdeaVault - Cofre de Ideias Criativas.",
+    "type": "project",
+    "require": {
+        "php": ">=8.3"
+    },
+    "license": "MIT"
+}

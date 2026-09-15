@@ -1,0 +1,24 @@
+body {
+    background-color: #f5f6fa;
+}
+
+.card-idea {
+    transition: transform 0.15s ease-in-out;
+}
+
+.card-idea:hover {
+    transform: translateY(-3px);
+}
+
+.auth-box {
+    max-width: 420px;
+    margin: 60px auto;
+}
+
+.badge-prioridade-baixa { background-color: #6c757d; }
+.badge-prioridade-media { background-color: #0d6efd; }
+.badge-prioridade-alta { background-color: #dc3545; }
+
+.badge-status-rascunho { background-color: #adb5bd; }
+.badge-status-em_desenvolvimento { background-color: #fd7e14; }
+.badge-status-concluida { background-color: #198754; }
