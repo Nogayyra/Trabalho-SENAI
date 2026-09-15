@@ -21,8 +21,8 @@ ideavault/
 │   └── IdeiaController.php  # CRUD de ideias e painel
 ├── Model/
 │   ├── Conexao.php      # Conexão PDO (única responsabilidade)
-│   ├── User.php            # Entidade + dados do usuário
-│   └── Idea.php             # Entidade + dados da ideia
+│   ├── Usuario.php         # Dados do usuário (com hash de senha)
+│   └── Ideia.php           # Dados da ideia
 ├── View/                   # Telas (entrar, cadastro, painel, ideias...)
 ├── templates/               # header, footer, navbar e assets (css/js)
 ├── database/
@@ -35,7 +35,7 @@ ideavault/
 ## Arquitetura (MVC)
 
 - **Model** (`Conexao`, `Usuario`, `Ideia`): representa os dados e conversa com o banco via PDO com *prepared statements*. Não conhece HTML nem sessão.
-- **Controller** (`AutenticacaoController`, `IdeiaController`): recebe a requisição (`$_GET`/`$_POST`), valida via os próprios Models, decide o fluxo (redirecionar ou renderizar uma View). Não contém HTML nem SQL.
+- **Controller** (`AutenticacaoController`, `IdeiaController`): recebe a requisição (`$_GET`/`$_POST`), chama o Model e decide o fluxo (redirecionar ou renderizar uma View). Não contém HTML nem SQL.
 - **View** (`View/*.php`): apenas apresentação. Recebe variáveis já prontas dos Controllers.
 - **index.php**: front controller único, faz o roteamento por `?action=`, sem lógica de negócio.
 
