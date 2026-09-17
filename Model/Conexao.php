@@ -1,15 +1,14 @@
 <?php
 
-/**
- * Conexão PDO com o banco.
- */
+// Conexão PDO com o banco.
+
 class Conexao
 {
     private static ?PDO $instance = null;
 
     private function __construct()
     {
-        // Impede instanciação direta.
+        
     }
 
     public static function get(): PDO
