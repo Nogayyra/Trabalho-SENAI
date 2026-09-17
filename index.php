@@ -1,11 +1,6 @@
 <?php
 
-require __DIR__ . '/Config/configuration.php';
-require __DIR__ . '/Model/Conexao.php';
-require __DIR__ . '/Model/Usuario.php';
-require __DIR__ . '/Model/Ideia.php';
-require __DIR__ . '/Controller/AutenticacaoController.php';
-require __DIR__ . '/Controller/IdeiaController.php';
+require __DIR__ . '/vendor/autoload.php';
 
 // Sessão
 if (session_status() === PHP_SESSION_NONE) {
