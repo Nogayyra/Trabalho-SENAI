@@ -1,10 +1,6 @@
 <?php
 
-/**
- * IdeiaController
- *
- * Coordenar o fluxo das requisições de CRUD de ideias e do dashboard.
- */
+// Coordenar o fluxo das requisições de CRUD de ideias e do dashboard.
 class IdeiaController
 {
     public static function dashboard(): void
