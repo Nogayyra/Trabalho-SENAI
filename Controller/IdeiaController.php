@@ -5,11 +5,16 @@ class IdeiaController
     private static function validar(array $d): array
     {
         $erros = [];
-        if (trim($d['titulo'] ?? '') === '') $erros[] = 'Título é obrigatório.';
-        if (trim($d['descricao'] ?? '') === '') $erros[] = 'Descrição é obrigatória.';
-        if (trim($d['categoria'] ?? '') === '') $erros[] = 'Categoria é obrigatória.';
-        if (!in_array($d['prioridade'] ?? '', Ideia::PRIORIDADES, true)) $erros[] = 'Prioridade inválida.';
-        if (!in_array($d['status'] ?? '', Ideia::STATUSES, true)) $erros[] = 'Status inválido.';
+        if (trim($d['titulo'] ?? '') === '')
+            $erros[] = 'Título é obrigatório.';
+        if (trim($d['descricao'] ?? '') === '')
+            $erros[] = 'Descrição é obrigatória.';
+        if (trim($d['categoria'] ?? '') === '')
+            $erros[] = 'Categoria é obrigatória.';
+        if (!in_array($d['prioridade'] ?? '', Ideia::PRIORIDADES, true))
+            $erros[] = 'Prioridade inválida.';
+        if (!in_array($d['status'] ?? '', Ideia::STATUSES, true))
+            $erros[] = 'Status inválido.';
         return $erros;
     }
 

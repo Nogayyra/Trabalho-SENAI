@@ -29,11 +29,16 @@ class AutenticacaoController
         $senha = $_POST['senha'] ?? '';
         $erros = [];
 
-        if ($nome === '') $erros[] = 'Nome é obrigatório.';
-        if ($email === '') $erros[] = 'E-mail é obrigatório.';
-        elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) $erros[] = 'E-mail inválido.';
-        if ($senha === '') $erros[] = 'Senha é obrigatória.';
-        elseif (mb_strlen($senha) < 6) $erros[] = 'Senha deve ter no mínimo 6 caracteres.';
+        if ($nome === '')
+            $erros[] = 'Nome é obrigatório.';
+        if ($email === '')
+            $erros[] = 'E-mail é obrigatório.';
+        elseif (!filter_var($email, FILTER_VALIDATE_EMAIL))
+            $erros[] = 'E-mail inválido.';
+        if ($senha === '')
+            $erros[] = 'Senha é obrigatória.';
+        elseif (mb_strlen($senha) < 6)
+            $erros[] = 'Senha deve ter no mínimo 6 caracteres.';
 
         if (empty($erros) && Usuario::buscarPorEmail($email) !== null) {
             $erros[] = 'E-mail já cadastrado.';
@@ -52,7 +57,7 @@ class AutenticacaoController
                 return;
             }
         } catch (PDOException $e) {
-            if ((int)($e->getCode()) === 23000 || str_contains($e->getMessage(), 'Duplicate')) {
+            if ((int) ($e->getCode()) === 23000 || str_contains($e->getMessage(), 'Duplicate')) {
                 $erros[] = 'E-mail já cadastrado.';
             } else {
                 $erros[] = 'Erro ao criar usuário. Tente novamente.';

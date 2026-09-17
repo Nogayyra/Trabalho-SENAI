@@ -5,7 +5,7 @@ class Ideia
     public const PRIORIDADES = ['baixa', 'media', 'alta'];
     public const STATUSES = ['rascunho', 'em_desenvolvimento', 'concluida'];
 
-    public static function criar(int $userId, string $titulo, string $descricao, string $categoria, string $prioridade, string $status): int|false
+    public static function criar(int $userId, string $titulo, string $descricao, string $categoria, string $prioridade, string $status): int
     {
         $pdo = Conexao::get();
         $stmt = $pdo->prepare('INSERT INTO ideas (user_id, titulo, descricao, categoria, prioridade, status) VALUES (:user_id, :titulo, :descricao, :categoria, :prioridade, :status)');
