@@ -2,19 +2,8 @@
     "name": "academico/ideavault",
     "description": "IdeaVault - Cofre de Ideias Criativas.",
     "type": "project",
-    "autoload": {
-        "psr-4": {
-            "Controller\\": "Controller/",
-            "Model\\": "Model/"
-        },
-        "files": [
-            "Config/configuration.php"
-        ]
-    },
-    "minimum-stability": "dev",
     "require": {
-        "php": ">=8.2",
-        "ext-mbstring": "*"
+        "php": ">=8.3"
     },
     "license": "MIT"
 }
