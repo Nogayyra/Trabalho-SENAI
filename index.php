@@ -1,9 +1,5 @@
 <?php
 
-/**
- * Carregar as classes necessárias e despachar a requisição para o Controller/ação correta.
- */
-
 require __DIR__ . '/Config/configuration.php';
 require __DIR__ . '/Model/Conexao.php';
 require __DIR__ . '/Model/Usuario.php';
@@ -11,7 +7,7 @@ require __DIR__ . '/Model/Ideia.php';
 require __DIR__ . '/Controller/AutenticacaoController.php';
 require __DIR__ . '/Controller/IdeiaController.php';
 
-// ---------- Sessão ----------
+// Sessão
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
@@ -20,7 +16,7 @@ $action = $_GET['action'] ?? ($_POST['action'] ?? 'dashboard');
 $method = $_SERVER['REQUEST_METHOD'];
 
 switch (true) {
-    // ---------- Autenticação ----------
+    // Autenticação
     case $action === 'login' && $method === 'GET':
         AutenticacaoController::telaLogin();
         break;
@@ -41,12 +37,12 @@ switch (true) {
         AutenticacaoController::logout();
         break;
 
-    // ---------- Dashboard ----------
+    // Dashboard
     case $action === 'dashboard':
         IdeiaController::dashboard();
         break;
 
-    // ---------- Ideias ----------
+    // Ideias
     case $action === 'ideas':
         IdeiaController::listar();
         break;
@@ -79,7 +75,7 @@ switch (true) {
         IdeiaController::aleatoria();
         break;
 
-    // ---------- Rota padrão ----------
+    // Rota padrão
     default:
         header('Location: index.php?action=dashboard');
         break;
