@@ -1,15 +1,12 @@
 <?php
 
-/**
- * Representar o usuário e suas operações de dados (criar, buscar). Não lida com sessão nem com HTML.
- */
 class Usuario
 {
     public ?int $id = null;
     public string $nome = '';
     public string $email = '';
 
-    // A senha é convertida para hash antes de salvar no banco.
+    // A senha é convertida para hash.
     public static function criar(string $nome, string $email, string $senha): int
     {
         $pdo = Conexao::get();
