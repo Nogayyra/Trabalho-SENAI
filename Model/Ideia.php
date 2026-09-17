@@ -1,9 +1,5 @@
 <?php
 
-/**
- * Responsabilidade: representar a ideia e suas operações de dados
- * (criar, listar, buscar, atualizar, excluir, filtrar).
- */
 class Ideia
 {
     public const PRIORIDADES = ['baixa', 'media', 'alta'];
@@ -28,9 +24,6 @@ class Ideia
         return (int) $pdo->lastInsertId();
     }
 
-    /**
-     * Lista as ideias de um usuário, com filtros opcionais.
-     */
     public static function listarPorUsuario(int $userId, array $filtros = []): array
     {
         $pdo = Conexao::get();
@@ -61,9 +54,6 @@ class Ideia
         return $stmt->fetchAll();
     }
 
-    /**
-     * Busca uma ideia por id, garantindo que pertence ao usuário informado.
-     */
     public static function buscarPorIdEUsuario(int $id, int $userId): ?array
     {
         $pdo = Conexao::get();
@@ -113,9 +103,6 @@ class Ideia
         return $ideia ?: null;
     }
 
-    /**
-     * Retorna as contagens usadas no dashboard.
-     */
     public static function contarPorStatus(int $userId): array
     {
         $pdo = Conexao::get();
