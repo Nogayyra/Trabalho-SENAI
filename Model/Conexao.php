@@ -1,28 +1,34 @@
 <?php
+namespace Model;
 
-// Conexão PDO com o banco.
+require_once __DIR__ . "/../Config/configuration.php";
+
+use PDO;
+use PDOException;
 
 class Conexao
 {
-    private static ?PDO $instance = null;
+    private static $stmt;
 
-    private function __construct()
+    public static function getInstance(): PDO
     {
-        
+        try {
+            if (empty(self::$stmt)) {
+                self::$stmt = new PDO("mysql:host=" . DB_HOST . ";port=" . DB_PORT . ";dbname=" . DB_NAME . "", DB_USER, DB_PASSWORD);
+            }
+        } catch (PDOException $error) {
+            die("Erro na conexão" . $error->getMessage());
+        }
+
+        return self::$stmt;
     }
 
     public static function get(): PDO
     {
-        if (self::$instance === null) {
-            $dsn = 'mysql:host=' . DB_HOST . ';port=' . DB_PORT . ';dbname=' . DB_NAME . ';charset=' . DB_CHARSET;
-
-            self::$instance = new PDO($dsn, DB_USER, DB_PASS, [
-                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-                PDO::ATTR_EMULATE_PREPARES => false,
-            ]);
-        }
-
-        return self::$instance;
+        return self::getInstance();
     }
+}
+
+if (!class_exists('Conexao', false)) {
+    class_alias('Model\\Conexao', 'Conexao');
 }
