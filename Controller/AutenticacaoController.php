@@ -1,9 +1,7 @@
 <?php
 
-/*
- * AutenticacaoController
- * Coordenar cadastro, login, logout e verificação de sessão.
- */
+AutenticacaoController
+// Coordenar cadastro, login, logout e verificação de sessão.
 class AutenticacaoController
 {
     public static function telaLogin(): void
@@ -75,9 +73,7 @@ class AutenticacaoController
         return !empty($_SESSION['usuario_id']);
     }
 
-    /**
-     * Protege páginas que exigem login. Deve ser chamado no início da ação.
-     */
+    // Protege páginas que exigem login, deve ser chamado no início da ação.
     public static function exigirLogin(): void
     {
         if (!self::estaLogado()) {
